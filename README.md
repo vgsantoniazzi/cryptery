@@ -7,7 +7,7 @@ this is a C algorithm to decrypt w/ brute-force hashes
 Compiling with Clang
 
 ```
-clang cryptery.c -o cryptery -lpthread && ./cryptery __HASH__
+clang cryptery.c -o cryptery -lpthread -lcrypto
 ```
 
 ## Usage

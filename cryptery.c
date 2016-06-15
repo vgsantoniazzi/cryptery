@@ -13,7 +13,7 @@ static const char alphabet[] =
 
 static const int alphabet_size = sizeof(alphabet) - 1;
 
-static const int max_chars = 17;
+static const int max_chars = 20;
 
 int current_number_chars = 0;
 
@@ -64,11 +64,10 @@ void brute_sequential(int max_length){
 }
 
 void *brute_match_md5(void *thread_id) {
-  int t = * (int *)thread_id;
   while(current_number_chars <= max_chars) {
     pthread_mutex_lock(&lock);
     current_number_chars += 1;
-    printf("\nThread #%d running algorithms with %d digits", t, current_number_chars);
+    printf("\nTrying match %d sized strings concurrently...", current_number_chars);
     pthread_mutex_unlock(&lock);
     brute_sequential(current_number_chars);
   }

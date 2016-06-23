@@ -2,18 +2,20 @@
 
 this is a C algorithm to decrypt w/ brute-force hashes
 
+This branch uses Intel cilkplus
+
 ## Getting Started
 
 Compiling with Clang
 
 ```
-cilkplus/bin/clang cryptery.c -o cryptery -lcilkplus -lcilkrts -lpthread -lcrypto
+clang cryptery.c -o cryptery -std=c11 -fcilkplus -lcilkrts -lpthread -lcrypto
 ```
 
 ## Usage
 
 ```
-./cryptery __HASH__
+CILK_NWORKERS=1 ./cryptery __HASH__
 ```
 
 ## Contributing

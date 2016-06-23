@@ -64,7 +64,7 @@ void brute_sequential(int max_length){
   free(buf);
 }
 
-void *brute_match_md5(void *thread_id) {
+void *brute_match_md5() {
   while(current_number_chars <= max_chars) {
     pthread_mutex_lock(&lock);
     current_number_chars += 1;
@@ -77,13 +77,9 @@ void *brute_match_md5(void *thread_id) {
 
 int main (int argc, char *argv[]) {
   int num_cpus = sysconf(_SC_NPROCESSORS_CONF);
-  //int threads_number = num_cpus * 2;
-  int threads_number = 1;
   md5_to_decrypt = argv[1];
-  printf("Running with %d threads", threads_number);
   printf("\nTrying to decrypt: %s", md5_to_decrypt);
-  int thread_id;
-  cilk_for(thread_id = 0; thread_id < threads_number; thread_id++)
-    brute_match_md5(thread_id);
+  while(1)
+    cilk_spawn(brute_match_md5());
   pthread_exit(NULL);
 }

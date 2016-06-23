@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Intel C++ Project"
+	Version="14.0"
+	Name="karatsuba"
+	ProjectGUID="{1C08B337-D228-45A2-A119-43B1AF1C8A14}"
+	VCNestedProjectGUID="{F1D37134-AAB1-4476-B348-D4157C387B24}"
+	VCNestedProjectFileName="karatsuba.vcproj"
+	>
+	<Configurations>
+		<Configuration
+			Name="Release|x64"
+			>
+			<Tool
+				Name="CppCmplrTool"
+				Optimization="1000"
+				UseProcessorExtensions="6"
+			/>
+		</Configuration>
+	</Configurations>
+	<Files/>
+</VisualStudioProject>

@@ -76,7 +76,6 @@ void *brute_match_md5() {
 }
 
 int main (int argc, char *argv[]) {
-  int num_cpus = sysconf(_SC_NPROCESSORS_CONF);
   md5_to_decrypt = argv[1];
   printf("\nTrying to decrypt: %s", md5_to_decrypt);
   while(1)

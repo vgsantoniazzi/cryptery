@@ -2,6 +2,8 @@
 
 this is a C algorithm to decrypt w/ brute-force hashes
 
+This version uses pure clang pthreads
+
 ## Getting Started
 
 Compiling with Clang

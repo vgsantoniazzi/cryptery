@@ -2,12 +2,14 @@
 
 this is a C algorithm to decrypt w/ brute-force hashes
 
+Version without threading
+
 ## Getting Started
 
 Compiling with Clang
 
 ```
-clang cryptery.c -o cryptery -lpthread -lcrypto
+clang cryptery.c -o cryptery -lcrypto
 ```
 
 ## Usage

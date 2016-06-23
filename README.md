@@ -2,20 +2,20 @@
 
 this is a C algorithm to decrypt w/ brute-force hashes
 
-This branch uses Intel cilkplus
+This branch uses OpenMP to paralelize
 
 ## Getting Started
 
-Compiling with Clang
+Compiling with gcc (Very very sad about that)
 
 ```
-clang cryptery.c -o cryptery -std=c11 -fcilkplus -lcilkrts -lpthread -lcrypto
+gcc cryptery.c -o cryptery -fopenmp -std=c11 -lpthread -lcrypto
 ```
 
 ## Usage
 
 ```
-CILK_NWORKERS=1 ./cryptery __HASH__
+./cryptery __HASH__
 ```
 
 ## Contributing

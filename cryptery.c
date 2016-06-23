@@ -5,7 +5,6 @@
 #include <string.h>
 #include <stdbool.h>
 #include <openssl/md5.h>
-#include "cilkplus/lib/cilk/cilk.h"
 
 static const char alphabet[] =
   "abcdefghijklmnopqrstuvwxyz"
@@ -78,7 +77,7 @@ void *brute_match_md5() {
 int main (int argc, char *argv[]) {
   md5_to_decrypt = argv[1];
   printf("\nTrying to decrypt: %s", md5_to_decrypt);
-  while(1)
-    cilk_spawn(brute_match_md5());
+  #pragma omp parallel
+  brute_match_md5();
   pthread_exit(NULL);
 }

@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <openssl/md5.h>
+#include "cilkplus/lib/cilk/cilk.h"
 
 static const char alphabet[] =
   "abcdefghijklmnopqrstuvwxyz"
@@ -76,15 +77,13 @@ void *brute_match_md5(void *thread_id) {
 
 int main (int argc, char *argv[]) {
   int num_cpus = sysconf(_SC_NPROCESSORS_CONF);
-  int threads_number = num_cpus * 2;
+  //int threads_number = num_cpus * 2;
+  int threads_number = 1;
   md5_to_decrypt = argv[1];
   printf("Running with %d threads", threads_number);
   printf("\nTrying to decrypt: %s", md5_to_decrypt);
-  pthread_t threads[threads_number];
   int thread_id;
-  for(thread_id = 0; thread_id < threads_number; thread_id++){
-    pthread_create(&threads[thread_id], NULL, brute_match_md5,
-        (void *) &thread_id);
-  }
+  cilk_for(thread_id = 0; thread_id < threads_number; thread_id++)
+    brute_match_md5(thread_id);
   pthread_exit(NULL);
 }

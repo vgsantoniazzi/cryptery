@@ -7,13 +7,13 @@ this is a C algorithm to decrypt w/ brute-force hashes
 Compiling with Clang
 
 ```
-clang cryptery.c -o cryptery -lpthread -lcrypto
+mpicc cryptery.c -o cryptery -std=c11 -lcrypto
 ```
 
 ## Usage
 
 ```
-./cryptery __HASH__
+mpirun -np 4 ./cryptery
 ```
 
 ## Contributing
